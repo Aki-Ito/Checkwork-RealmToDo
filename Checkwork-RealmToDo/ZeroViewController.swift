@@ -22,6 +22,7 @@ class ZeroViewController: UIViewController {
         let nextTarget = realm.objects(Score.self).first
         
         
+        
         realmLabel.text = nextTarget?.target
               
         }

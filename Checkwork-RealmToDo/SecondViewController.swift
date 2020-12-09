@@ -43,7 +43,11 @@ class SecondViewController: UIViewController,UITextFieldDelegate{
     
     @IBAction func save(){
         
+        let realm = try! Realm()
+        let nextTarget = realm.objects(Score.self).first
         
+        if nextTarget == ""{
+    
         let toDo = Score()
         toDo.target = toDoTextField.text!
         
@@ -55,7 +59,11 @@ class SecondViewController: UIViewController,UITextFieldDelegate{
         }catch{
             
         }
-        
+        }else{
+            try! realm.write {
+                nextTarget?.target = toDoTextField.text!
+            }
+        }
         self.performSegue(withIdentifier: "toCheck", sender: nil)
     }
 }
