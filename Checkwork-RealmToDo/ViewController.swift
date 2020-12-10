@@ -22,10 +22,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
     var scoreValue : String!
     var classScoreValue : String!
     
-    override func viewDidLoad() {
+    override func viewDidLoad(){
         super.viewDidLoad()
         
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+       
         scoreTextField.delegate = self
         classScoreTextField.delegate = self
         
@@ -43,8 +43,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         scoreValue = scoreTextField.text!
         classScoreValue = classScoreTextField.text!
-        //画面遷移のコード
-        self.performSegue(withIdentifier: "Second", sender: nil)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

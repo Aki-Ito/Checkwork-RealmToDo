@@ -4,7 +4,6 @@
 //
 //  Created by 伊藤明孝 on 2020/12/06.
 //
-
 import UIKit
 import RealmSwift
 
@@ -46,7 +45,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate{
         let realm = try! Realm()
         let nextTarget = realm.objects(Score.self).first
         
-        if nextTarget == ""{
+        if nextTarget == nil{
     
         let toDo = Score()
         toDo.target = toDoTextField.text!
@@ -64,7 +63,6 @@ class SecondViewController: UIViewController,UITextFieldDelegate{
                 nextTarget?.target = toDoTextField.text!
             }
         }
-        self.performSegue(withIdentifier: "toCheck", sender: nil)
+        navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
 }
-

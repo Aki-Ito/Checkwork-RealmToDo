@@ -14,9 +14,8 @@ class ZeroViewController: UIViewController {
     @IBOutlet var headingLabel : UILabel!
     @IBOutlet var realmLabel : UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         let realm = try! Realm()
         
         let nextTarget = realm.objects(Score.self).first
@@ -30,10 +29,7 @@ class ZeroViewController: UIViewController {
     
         // Do any additional setup after loading the view.
     
-    @IBAction func nextButton(){
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
-        
-    }
+   
     
 
     /*
