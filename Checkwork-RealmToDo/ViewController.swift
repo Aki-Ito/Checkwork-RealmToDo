@@ -6,9 +6,9 @@
 //
 
 import UIKit
-import RealmSwift
 
-class ViewController: UIViewController,UITextFieldDelegate {
+
+class ViewController: UIViewController {　　　//不足しているコードを書こう！
 
     
     @IBOutlet var headingLabel: UILabel!
@@ -31,7 +31,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         
         self.scoreTextField.keyboardType = UIKeyboardType.numberPad
         self.classScoreTextField.keyboardType = UIKeyboardType.numberPad
-        // Do any additional setup after loading the view.
+        
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -41,15 +41,13 @@ class ViewController: UIViewController,UITextFieldDelegate {
     
     @IBAction func addButton(){
         
-        scoreValue = scoreTextField.text!
-        classScoreValue = classScoreTextField.text!
+       //scoreValue,classScoreValueにtextField内の数字を入れるコードを書こう！！
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let secondViewController: SecondViewController = segue.destination as! SecondViewController
-        secondViewController.scoreValue = self.scoreValue
-        secondViewController.classScoreValue = self.classScoreValue
+        //画面遷移する際にscoreValue, classScoreValueの値の受け渡しをしよう！！
         
     }
     

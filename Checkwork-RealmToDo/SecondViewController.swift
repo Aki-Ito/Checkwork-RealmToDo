@@ -5,9 +5,9 @@
 //  Created by 伊藤明孝 on 2020/12/06.
 //
 import UIKit
-import RealmSwift
+//不足しているコードを書こう！！
 
-class SecondViewController: UIViewController,UITextFieldDelegate{
+class SecondViewController: UIViewController{  //不足しているコードを書こう！！
     
     @IBOutlet var headingLabel: UILabel!
     @IBOutlet var toDoLabel: UILabel!
@@ -19,9 +19,9 @@ class SecondViewController: UIViewController,UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        toDoTextField.delegate = self
+        //メソッドの実行をしましょう！！
         
-        self.hantei()
-        // Do any additional setup after loading the view.
     }
     
     func hantei(){
@@ -39,30 +39,16 @@ class SecondViewController: UIViewController,UITextFieldDelegate{
         
         
     }
-    
+    //realmの基礎的な扱いについて
     @IBAction func save(){
         
-        let realm = try! Realm()
-        let nextTarget = realm.objects(Score.self).first
         
-        if nextTarget == nil{
-    
-        let toDo = Score()
-        toDo.target = toDoTextField.text!
+    //realmのモデルクラスをインスタンス化してください
         
-        do {
-            let realm = try Realm()
-            try realm.write({ () -> Void in
-                realm.add(toDo)
-            })
-        }catch{
-            
-        }
-        }else{
-            try! realm.write {
-                nextTarget?.target = toDoTextField.text!
-            }
-        }
+    //インスタンス化したモデルクラスの項目名にtoDoTextFieldの値を入れよう！！
+        
+    //データベースに保存しよう！！
+       
         navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
     }
 }

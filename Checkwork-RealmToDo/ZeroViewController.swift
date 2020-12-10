@@ -4,7 +4,7 @@
 //
 //  Created by 伊藤明孝 on 2020/12/08.
 //
-
+//ここのファイルはいじらなくて良いよ！
 import UIKit
 import RealmSwift
 
@@ -15,10 +15,13 @@ class ZeroViewController: UIViewController {
     @IBOutlet var realmLabel : UILabel!
     
     override func viewWillAppear(_ animated: Bool) {
+        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        //realmの値取り出し
         let realm = try! Realm()
         
-        let nextTarget = realm.objects(Score.self).first
+        let nextTarget = realm.objects(Score.self)
         
         
         
